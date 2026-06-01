@@ -1,26 +1,212 @@
 @import "tailwindcss";
 
+/* ============================================
+   ALDEA CORE APP — Joyful Modernism Design System
+   Exact fidelity from AI Studio / Stitch export + DESIGN.md
+   This is the single visual source of truth for the product.
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Core Surfaces (Warm, Calm, Premium) */
+  --color-surface: #f5fbf9;
+  --color-surface-dim: #d5dbd9;
+  --color-surface-bright: #f5fbf9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff5f3;
+  --color-surface-container: #e9efed;
+  --color-surface-container-high: #e4e9e7;
+  --color-surface-container-highest: #dee4e2;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Text */
+  --color-on-surface: #171d1c;
+  --color-on-surface-variant: #56423c;
+  --color-inverse-surface: #2c3231;
+  --color-inverse-on-surface: #ecf2f0;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Borders */
+  --color-outline: #8a726b;
+  --color-outline-variant: #ddc0b9;
+
+  /* Primary — Terracotta (Warm, Nurturing, Primary Action) */
+  --color-primary: #9d3e20;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #bd5536;
+  --color-terracotta-warm: #D66847;
+
+  /* Secondary — Sage Green (Trust, Community, Calm Success) */
+  --color-secondary: #516447;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d1e6c2;
+  --color-on-secondary-container: #55684b;
+  --color-sage-green: #7C9070;
+
+  /* Supporting Accents */
+  --color-blush-clay: #EBC9B1;
+  --color-soft-cream: #F9F5F0;
+  --color-deep-moss: #3E4A3D;
+  --color-midnight-slate: #1A1E1E;
+
+  /* Semantic */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+
+  /* Typography Tokens */
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Literata", ui-serif, Georgia, "Times New Roman", serif;
+
+  /* Spacing & Shape (Joyful Organic) */
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
 }
+
+/* Typography Scale */
+.font-serif { font-family: var(--font-serif); letter-spacing: -0.01em; }
+
+.display-lg { font-size: 42px; line-height: 48px; font-weight: 700; }
+.headline-lg { font-size: 28px; line-height: 34px; font-weight: 600; }
+.headline-md { font-size: 22px; line-height: 28px; font-weight: 600; }
+
+.body-lg { font-size: 17px; line-height: 26px; }
+.body-md { font-size: 15px; line-height: 23px; }
+
+/* === Core UI Primitives (from prototype + DESIGN.md) === */
+.organic-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.bento-card {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.25s ease;
+}
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px -12px rgb(0 0 0 / 0.07);
+}
+
+/* Premium Pill Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 26px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 8px rgb(157 62 32 / 0.18);
+}
+.btn-primary:hover { background: #80290d; transform: translateY(-1px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-sage-green);
+}
+.btn-secondary:hover { background: var(--color-secondary-container); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-on-surface-variant);
+}
+.btn-ghost:hover { background: var(--color-surface-container); }
+
+.btn-sm { padding: 7px 16px; font-size: 13px; }
+
+/* Cards & Surfaces */
+.card {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+}
+
+.card-elevated {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  box-shadow: 0 4px 18px -4px rgb(0 0 0 / 0.06);
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 13px 15px;
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  color: var(--color-on-surface);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--color-sage-green);
+  box-shadow: 0 0 0 3px rgba(124, 144, 112, 0.12);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-full);
+}
+.badge-premium { background: var(--color-primary); color: white; }
+.badge-free { background: var(--color-secondary-container); color: var(--color-on-secondary-container); }
+
+/* App-specific: Bottom Tab Bar (Mobile First) */
+.tab-bar {
+  background: var(--color-surface-container-lowest);
+  border-top: 1px solid var(--color-outline-variant);
+  backdrop-filter: blur(12px);
+}
+
+/* Moment Card Styling (from prototype aesthetic) */
+.moment-card {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Insights / Premium Visual Polish */
+.insight-card {
+  background: linear-gradient(145deg, var(--color-surface-container-low), var(--color-surface-container));
+  border: 1px solid var(--color-outline-variant);
+}
+
+/* Focus + Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-sage-green);
+  outline-offset: 3px;
+}
+
+/* Utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
