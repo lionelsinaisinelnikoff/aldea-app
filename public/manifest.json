@@ -1,0 +1,18 @@
+{
+  "name": "Aldea — Your child's village",
+  "short_name": "Aldea",
+  "description": "Private, joyful digital village for parents, circles, and educators.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5fbf9",
+  "theme_color": "#9d3e20",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/brand/aldea-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
