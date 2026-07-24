@@ -131,10 +131,22 @@ Environment (optional for future live LLM):
 XAI_API_KEY=
 ```
 
-## Repository
+## Repository & live preview
 
-- **GitHub:** https://github.com/lionelsinaisinelnikoff/aldea-app  
-- **Live preview:** (see deployment section after Vercel deploy)
+| | URL |
+|--|-----|
+| **GitHub** | https://github.com/lionelsinaisinelnikoff/aldea-app |
+| **Live (Vercel)** | https://aldea-app.vercel.app |
+
+Project is linked on Vercel as `aldea-app` (`prj_zI1qU5pw7c2uBArw1ZRjorfYXIpF`).  
+To redeploy production after `vercel login`:
+
+```bash
+cd aldea-app
+npx vercel --prod --yes
+```
+
+Or push to `main` once the GitHub integration’s deploy hooks are active.
 
 ---
 
